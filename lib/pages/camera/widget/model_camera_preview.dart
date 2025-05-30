@@ -43,43 +43,11 @@ class ModelCameraPreview extends StatelessWidget {
         CameraPreview(cameraController!),
         Visibility(
           visible: draw,
-          child: IndexedStack(
-            index: index,
-            children: [
-              _drawBoundingBox,
-              _drawLandmarks,
-              _drawHands,
-              _drawPose,
-            ],
-          ),
+          child: _drawPose,
         ),
       ],
     );
   }
-
-  Widget get _drawBoundingBox {
-    final bbox = inferenceResults?['bbox'];
-    return _ModelPainter(
-      customPainter: FaceDetectionPainter(
-        bbox: bbox ?? Rect.zero,
-        ratio: _ratio,
-      ),
-    );
-  }
-
-  Widget get _drawLandmarks => _ModelPainter(
-        customPainter: FaceMeshPainter(
-          points: inferenceResults?['point'] ?? [],
-          ratio: _ratio,
-        ),
-      );
-
-  Widget get _drawHands => _ModelPainter(
-        customPainter: HandsPainter(
-          points: inferenceResults?['point'] ?? [],
-          ratio: _ratio,
-        ),
-      );
 
   Widget get _drawPose => _ModelPainter(
         customPainter: PosePainter(

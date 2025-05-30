@@ -32,56 +32,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          'Select Your Model',
-          style: TextStyle(
-              color: Colors.white,
-              fontSize: ScreenUtil().setSp(28),
-              fontWeight: FontWeight.bold),
-        ),
-      ),
-      body: Stack(
-        children: [
-          _BackGroundImage(currentPageValue: _currentPageValue),
-          _ModelPreview(
-            pageController: _pageController,
-            currentPageValue: _currentPageValue,
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _BackGroundImage extends StatelessWidget {
-  const _BackGroundImage({
-    Key? key,
-    required this.currentPageValue,
-  }) : super(key: key);
-
-  final double currentPageValue;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(
-            models[currentPageValue.round()]['image']!,
-          ),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: BackdropFilter(
-        filter: ImageFilter.blur(
-          sigmaX: 5.0,
-          sigmaY: 5.0,
-        ),
-        child: Container(
-          color: Colors.black.withOpacity(0.15),
-        ),
+      backgroundColor: Colors.black,
+      body: _ModelPreview(
+        pageController: _pageController,
+        currentPageValue: _currentPageValue,
       ),
     );
   }

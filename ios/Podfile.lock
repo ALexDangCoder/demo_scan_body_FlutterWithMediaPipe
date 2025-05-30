@@ -1,0 +1,52 @@
+PODS:
+  - camera_avfoundation (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+  - path_provider_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+  - TensorFlowLiteC (2.17.0):
+    - TensorFlowLiteC/Core (= 2.17.0)
+  - TensorFlowLiteC/Core (2.17.0)
+  - TensorFlowLiteSwift (2.17.0):
+    - TensorFlowLiteSwift/Core (= 2.17.0)
+  - TensorFlowLiteSwift/Core (2.17.0):
+    - TensorFlowLiteC (= 2.17.0)
+    - TensorFlowLiteSwift/Privacy (= 2.17.0)
+  - TensorFlowLiteSwift/Privacy (2.17.0)
+  - tflite_flutter (0.1.0):
+    - Flutter
+    - TensorFlowLiteSwift
+
+DEPENDENCIES:
+  - camera_avfoundation (from `.symlinks/plugins/camera_avfoundation/ios`)
+  - Flutter (from `Flutter`)
+  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
+  - tflite_flutter (from `.symlinks/plugins/tflite_flutter/ios`)
+
+SPEC REPOS:
+  trunk:
+    - TensorFlowLiteC
+    - TensorFlowLiteSwift
+
+EXTERNAL SOURCES:
+  camera_avfoundation:
+    :path: ".symlinks/plugins/camera_avfoundation/ios"
+  Flutter:
+    :path: Flutter
+  path_provider_foundation:
+    :path: ".symlinks/plugins/path_provider_foundation/darwin"
+  tflite_flutter:
+    :path: ".symlinks/plugins/tflite_flutter/ios"
+
+SPEC CHECKSUMS:
+  camera_avfoundation: 7262a4e34c2e028f6aa5fb523ae74c9b74d3bd76
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  path_provider_foundation: 608fcb11be570ce83519b076ab6a1fffe2474f05
+  TensorFlowLiteC: eac6d689a8d391d1b202dc59e3d9165ba64aaf73
+  TensorFlowLiteSwift: 723fe42222815e72490c79feeff05305530de393
+  tflite_flutter: 1a3d74dd49551bdcca6fa15cab08ce61eb9f8db6
+
+PODFILE CHECKSUM: ca73f9e8399c19ad1935f73c08f8c42802874bcf
+
+COCOAPODS: 1.16.2

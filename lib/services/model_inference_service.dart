@@ -45,17 +45,17 @@ class ModelInferenceService {
   void setModelConfig(int index) {
     switch (Models.values[index]) {
       case Models.faceDetection:
-        model = locator<FaceDetection>();
-        handler = runFaceDetector;
-        break;
+        // model = locator<FaceDetection>();
+        // handler = runFaceDetector;
+        // break;
       case Models.faceMesh:
-        model = locator<FaceMesh>();
-        handler = runFaceMesh;
-        break;
+        // model = locator<FaceMesh>();
+        // handler = runFaceMesh;
+        // break;
       case Models.hands:
-        model = locator<Hands>();
-        handler = runHandDetector;
-        break;
+        // model = locator<Hands>();
+        // handler = runHandDetector;
+        // break;
       case Models.pose:
         model = locator<Pose>();
         handler = runPoseEstimator;

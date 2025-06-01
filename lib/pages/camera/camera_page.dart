@@ -7,6 +7,7 @@ import '../../services/model_inference_service.dart';
 import '../../services/service_locator.dart';
 import '../../utils/isolate_utils.dart';
 import 'widget/model_camera_preview.dart';
+import 'widget/fps_counter.dart';
 
 class CameraPage extends StatefulWidget {
   const CameraPage({
@@ -107,21 +108,29 @@ class _CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
           _imageStreamToggle;
         }
       },
-      child: Scaffold(
-        backgroundColor: Colors.black,
-        appBar: _buildAppBar,
-        body: ModelCameraPreview(
-          cameraController: _cameraController,
-          index: widget.index,
-          draw: _draw,
-        ),
-        floatingActionButton: _buildFloatingActionButton,
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      child: Column(
+        children: [
+          _buildAppBar,
+          Expanded(
+            child: Stack(
+              children: [
+                ModelCameraPreview(
+                  cameraController: _cameraController,
+                  index: widget.index,
+                  draw: _draw,
+                ),
+                const FpsCounter(),
+              ],
+            ),
+          ),
+          _buildFloatingActionButton
+        ],
       ),
     );
   }
 
   AppBar get _buildAppBar => AppBar(
+        backgroundColor: Colors.transparent,
         title: Text(
           models[widget.index]['title']!,
           style: TextStyle(
@@ -139,7 +148,7 @@ class _CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
             color: Colors.white,
             iconSize: ScreenUtil().setWidth(30.0),
             icon: const Icon(
-              Icons.cameraswitch,
+              Icons.change_circle_outlined,
             ),
           ),
           IconButton(
@@ -147,7 +156,7 @@ class _CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
             color: Colors.white,
             iconSize: ScreenUtil().setWidth(30.0),
             icon: const Icon(
-              Icons.filter_center_focus,
+              Icons.document_scanner_sharp,
             ),
           ),
         ],

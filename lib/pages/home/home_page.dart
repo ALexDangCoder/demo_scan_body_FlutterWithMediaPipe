@@ -54,20 +54,17 @@ class _ModelPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: SizedBox(
-        height: ScreenUtil().setHeight(450.0),
-        child: PageView.builder(
-          controller: pageController,
-          physics: const BouncingScrollPhysics(),
-          itemCount: models.length,
-          itemBuilder: (context, index) {
-            var scale = (currentPageValue - index).abs();
-            return ModelCard(
-              index: index,
-              scale: scale,
-            );
-          },
-        ),
+      child: PageView.builder(
+        controller: pageController,
+        physics: const BouncingScrollPhysics(),
+        itemCount: models.length,
+        itemBuilder: (context, index) {
+          var scale = (currentPageValue - index).abs();
+          return ModelCard(
+            index: index,
+            scale: scale,
+          );
+        },
       ),
     );
   }

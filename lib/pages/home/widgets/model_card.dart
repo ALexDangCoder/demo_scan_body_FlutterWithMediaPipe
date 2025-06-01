@@ -20,20 +20,7 @@ class ModelCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => _onTapCamera(context),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15.0),
-          image: DecorationImage(
-            image: AssetImage(models[index]['image']!),
-            fit: BoxFit.cover,
-          ),
-        ),
-        margin: EdgeInsets.symmetric(
-          horizontal: ScreenUtil().setWidth(10.0),
-          vertical: ScreenUtil().setHeight(30.0) * scale,
-        ),
-        child: _ModelDescription(index: index),
-      ),
+      child: _ModelDescription(index: index),
     );
   }
 
@@ -63,15 +50,12 @@ class _ModelDescription extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
           decoration: BoxDecoration(
             color: Colors.white.withOpacity(0.2),
-            borderRadius: const BorderRadius.only(
-              bottomLeft: Radius.circular(15.0),
-              bottomRight: Radius.circular(15.0),
-            ),
+            borderRadius: const BorderRadius.all(Radius.circular(16)),
           ),
           padding: EdgeInsets.all(ScreenUtil().setWidth(16.0)),
           child: Column(
